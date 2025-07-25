@@ -90,10 +90,15 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB Connection
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect(MONGO_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+mongoose
+  .connect("mongodb+srv://zeshig01:Zeeshan%4012311@cluster0.ftfisvo.mongodb.net/simplecrud?retryWrites=true&w=majority&appName=Cluster0")
+  .then(() => console.log("✅ MongoDB Atlas connected"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 db.once("open", () => console.log("Connected to MongoDB"));
