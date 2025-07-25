@@ -299,7 +299,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Replace with your own MongoDB Atlas connection string
-const MONGO_URI = 'mongodb+srv://zeshig01:Zeeshan@cluster0.ftfisvo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGO_URI = 'mongodb+srv://zeshig01:Zeeshan%4012311@cluster0.ftfisvo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 // Connect to MongoDB Atlas
 mongoose.connect(MONGO_URI, {
