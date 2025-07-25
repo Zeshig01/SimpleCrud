@@ -296,7 +296,9 @@ const swaggerJsdoc = require('swagger-jsdoc');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
-app.use(cors());
+app.use(cors({
+  origin: '*',  // ❗ For development only
+}));
 
 app.use(bodyParser.json());
 
