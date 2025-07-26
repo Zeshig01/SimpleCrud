@@ -297,8 +297,11 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 app.use(cors({
-  origin: '*',  // ❗ For development only
+  origin: ['http://localhost:3000', 'https://simplecrud.up.railway.app'], // ✅ Frontend & Swagger origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
 
 app.use(bodyParser.json());
 
