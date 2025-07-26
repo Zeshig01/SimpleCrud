@@ -297,11 +297,14 @@ const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://simplecrud.up.railway.app'], // ✅ Frontend & Swagger origin
+  origin: ['http://localhost:3000', 'https://simplecrud.up.railway.app'], 
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
-
+app.use((req, res, next) => {
+  console.log('🔥 Request from:', req.headers.origin);
+  next();
+});
 
 app.use(bodyParser.json());
 
